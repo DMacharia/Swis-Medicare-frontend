@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import { Switch, Route } from 'react-router-dom';
+import Patient from './Patient';
+import Login from './Login';
+import PatientHistory from './PatientHistory';
 
 function App() {
+  const [user, setUser] = useState(null);
+
+
+  useEffect(() => {
+    // auto-login
+    fetch('/me').then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user));
+      }
+    });
+  }, []);
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <NavBar user={user} setUser={setUser} />
+      <Switch>
+        <Route exact path='/me'>
+          {user ? <Patient user={user} /> : <Login onLogin={setUser} />}
+        </Route>
+        <Route exact path='/login'>
+          {user ? <Patient user={user} /> : <Login onLogin={setUser} />}
+        </Route>
+        <Route exact path='/'>
+        </Route>
+      </Switch>
+    </>
   );
 }
 
-export default App;
+export default (App);
+
+       

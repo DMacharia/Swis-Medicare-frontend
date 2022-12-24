@@ -85,10 +85,20 @@ function PatientForm() {
         type="text"
         id="gender"
         value={gender}
-        onChange={(event)}
+        onChange={(event) => setGender(event.target.value)}
+        />
+
+
+      <br />
+      <label htmlFor="address">Address:</label>
+      <input
+        type="text"
+        id="address"
+        value={address}
+        onChange={(event) => setAddress(event.target.value)}
         
         
         
-  )}
+)}
         
   export default Patient;
