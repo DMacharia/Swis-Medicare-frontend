@@ -86,4 +86,9 @@ function PatientForm() {
         id="gender"
         value={gender}
         onChange={(event)}
-  )
+        
+        
+        
+  )}
+        
+  export default Patient;
