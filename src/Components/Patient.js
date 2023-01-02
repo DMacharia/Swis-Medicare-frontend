@@ -87,9 +87,7 @@ function PatientForm() {
         value={gender}
         onChange={(event) => setGender(event.target.value)}
         />
-
-
-      <br />
+        <br />
       <label htmlFor="address">Address:</label>
       <input
         type="text"
@@ -99,6 +97,7 @@ function PatientForm() {
         
         
         
-)}
+) 
+}
         
   export default Patient;

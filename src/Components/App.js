@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Switch, Route } from 'react-router-dom';
 import Patient from './Patient';
 import Login from './Login';
 import PatientHistory from './PatientHistory';
@@ -18,19 +17,12 @@ function App() {
   }, []);
   
   return (
-    <>
-      <NavBar user={user} setUser={setUser} />
-      <Switch>
-        <Route exact path='/me'>
-          {user ? <Patient user={user} /> : <Login onLogin={setUser} />}
-        </Route>
-        <Route exact path='/login'>
-          {user ? <Patient user={user} /> : <Login onLogin={setUser} />}
-        </Route>
-        <Route exact path='/'>
-        </Route>
-      </Switch>
-    </>
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
   );
 }
 
