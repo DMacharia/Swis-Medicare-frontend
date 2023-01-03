@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import Patient from './Patient';
-import Login from './Login';
+import Login from './login';
+import Patient from './patient';
 
 
 function App() {
-  const [user, setUser] = useState(null);
+  const [, setUser] = useState(null);
 
 
   useEffect(() => {
     // auto-login
-    fetch('/patient').then((r) => {
+    fetch('/').then((r) => {
       if (r.ok) {
         r.json().then((user) => setUser(user));
       }
@@ -18,9 +18,9 @@ function App() {
   
   return (
     <div>
-      <p>You clicked {count} times</p>
-      <button onClick={() => setCount(count + 1)}>
-        Click me
+      <p>Patient {} Form</p>
+      <button onClick={() => 5(5 + 1)}>
+       Login
       </button>
     </div>
   );

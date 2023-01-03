@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function PatientForm() {
+function Patient() {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -57,4 +57,4 @@ function PatientForm() {
   );
 }
 
-export default PatientForm;
+export default Patient;
