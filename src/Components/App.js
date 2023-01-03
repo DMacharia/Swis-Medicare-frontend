@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Patient from './Patient';
 import Login from './Login';
-import PatientHistory from './PatientHistory';
+
 
 function App() {
   const [user, setUser] = useState(null);
