@@ -9,7 +9,7 @@ function App() {
 
   useEffect(() => {
     // auto-login
-    fetch('/me').then((r) => {
+    fetch('/patient').then((r) => {
       if (r.ok) {
         r.json().then((user) => setUser(user));
       }
