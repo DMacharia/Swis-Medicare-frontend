@@ -11,7 +11,7 @@ function Patient() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    // add code to submit the form here
+    
   }
 
   return (
