@@ -1,6 +1,6 @@
 import React from 'react';
-import Appointment from './Appointment';
-import Patient from './PatientProfile';
+import Login from './Login';
+import PatientProfile from './PatientProfile';
 import { Route, Router } from 'react-router-dom';
 import {BrowserRouter} from 'react-router-dom';
  
