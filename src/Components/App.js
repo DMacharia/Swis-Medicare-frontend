@@ -1,6 +1,6 @@
 import React from 'react';
 import Login from './Login';
-import PatientProfile from './PatientProfile';
+import PatientProfile from './PatientsProfile';
 import { Route, Router } from 'react-router-dom';
 import {BrowserRouter} from 'react-router-dom';
  
