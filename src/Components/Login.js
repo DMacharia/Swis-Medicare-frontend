@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const handleSubmit = event => {
         event.preventDefault();
         // Do something with the username and password, like send them to a server
         // If the login is successful, navigate to the patient profile page
-        history.push('/patient-profile');
+        navigate.push('/patient-profile');
     }
 
     return (

@@ -1,28 +1,25 @@
 import React from 'react';
+import { BrowserRouter as Router,  Route } from 'react-router-dom';
 import Login from './Login';
-import PatientProfile from './PatientsProfile';
-import { Route, Router } from 'react-router-dom';
-import {BrowserRouter} from 'react-router-dom';
- 
+import PatientsProfile from './PatientsProfile';
 
-class App extends Component {
-  render() {
+function App() {
     return (
-      <BrowserRouter>
-        <div>
-          
-          <Router>
-          <Route exact path="/login" component={Login} />
-            <Route exact path="/patient" component={Patient} />
-            </Router>
-            </div>
-      </BrowserRouter>
+        <Router>
+            
+                <Route path="/patient-profile">
+                    <PatientsProfile />
+                </Route>
+                <Route path="/login">
+                    <Login />
+                </Route>
+            
+        </Router>
     );
-  }
 }
 
+export default App;
 
-export default (App);
 
 
 
