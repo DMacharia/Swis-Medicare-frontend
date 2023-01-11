@@ -10,7 +10,7 @@ function Login() {
         event.preventDefault();
         // Do something with the username and password, like send them to a server
         // If the login is successful, navigate to the patient profile page
-        navigate.push('/patient-profile');
+        navigate('/patient-profile');
     }
 
     return (
