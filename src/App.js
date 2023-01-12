@@ -1,26 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
-import { Route, Routes } from 'react-router-dom';
-import Home from './components/Home'
-import Sidebar from './components/Sidebar';
-import DoctorCard from './components/doctor/DoctorCard';
-import EditDoctor from './components/doctor/EditDoctor'
-import NewPatientForm from './components/patient/NewPatientForm';
-import PatientCard from './components/patient/PatientCard';
+import React from 'react';
+import {Routes, Route} from "react-router-dom"
+import Homepatient from './components/Homepatient'
+import Login from './components/Login';
+import PatientsProfile from './components/PatientsProfile';
 
 function App() {
-  return (
-    <div className="App">
-      <Sidebar />
-      {/* <NewPatientForm /> */}
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/doctors' element={<DoctorCard />} />
-          <Route path='/patients' element={<PatientCard />} />
-          <Route exact path='/edit/:id' element={<EditDoctor/>}/>
+    return (
+       <div>
+
+         <Routes>
+          <Route path='/' element={<Homepatient />} />
+          <Route path="/patientsprofile" element={<PatientsProfile />}/> 
+          <Route path="/login" element={<Login />} />  
         </Routes>
-    </div>
-  );
+       </div>
+    );
 }
 
 export default App;
