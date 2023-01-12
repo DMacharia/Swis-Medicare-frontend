@@ -1,0 +1,100 @@
+.app_container {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* border: 1px solid #001529; */
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.app_doctors {
+    border: 1px solid #000;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.app_doctors p {
+    padding-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.app_doctors p span {
+    color: #0071bd;
+    font-weight: bold; 
+}
+
+.doctor {
+    width: 170px;
+    margin-right: 1.8rem;
+    font-size: 1.2rem;
+    align-items: center;
+}
+
+.doctors_container {
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.doctor_container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.doctorr{
+    margin-right: 0.8rem;
+    align-items: center;
+}
+
+.doctor_action a {
+    color: green;
+    text-decoration: none;
+    font-weight: bold;
+    padding-right: 0.8rem;
+}
+
+.doctor_action button {
+    background: red;
+    align-items: center;
+    border-radius: 7px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    padding: 0.1rem 0.5rem;
+}
+
+.doctor_action button:hover {
+    border: 1px solid red;
+    background: transparent;
+}
+
+.doctor_action {
+    display: flex;
+    justify-content: space-between;
+}
+
+.actions_container{
+    justify-content: center;
+    text-align: center;
+    /* margin-top: 2rem; */
+}
+
+.buttons {
+    padding-top: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.buttons button {
+    color: green;
+    text-decoration: none;
+    font-size: 1.25rem;
+    cursor: pointer;
+    font-weight: bold;
+    outline: none;
+    border: none;
+    
+}
