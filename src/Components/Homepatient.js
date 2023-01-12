@@ -1,8 +1,8 @@
 import React from 'react'
-import './home.css'
+import './homepatient.css'
 import { Link } from 'react-router-dom'
 
-const Home = () => {
+const Homepatient = () => {
   return (
     <div className='wrapper'>
         <div className='nav'>
@@ -26,4 +26,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Homepatient
