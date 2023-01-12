@@ -5,7 +5,7 @@ import './doctor.css'
 const DoctorContainer = ({ doctors, removeDoctor }) => {
   return (
     <div className='doctor_container'>
-      {doctors.map(doctor => {
+      {doctors?.map(doctor => {
         return (
           <Doctor
             key={doctor.id}

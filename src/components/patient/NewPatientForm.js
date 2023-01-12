@@ -19,9 +19,9 @@ const NewPatientForm = () => {
           </section>
           <section className="text-input">
             <label>
-              Image URL
+              Username
             </label>
-            <input type="text" placeholder="Image URL here ..." />
+            <input type="text" placeholder="Username here ..." />
           </section>
           <section className="text-input">
             <label>
@@ -37,9 +37,39 @@ const NewPatientForm = () => {
           </section>
           <section className="text-input">
             <label>
-              ID Number
+              Gender
             </label>
-            <input type="text" placeholder="ID Number here ..." />
+            <input type="text" placeholder="Gender here ..." />
+          </section>
+          <section className="text-input">
+            <label>
+              Blood Group
+            </label>
+            <input type="text" placeholder="Blood group here ..." />
+          </section>
+          <section className="text-input">
+            <label>
+              Address
+            </label>
+            <input type="text" placeholder="Address here ..." />
+          </section>
+          <section className="text-input">
+            <label>
+              Password
+            </label>
+            <input type="text" placeholder="Password here ..." />
+          </section>
+          <section className="text-input">
+            <label>
+              Date of Birth
+            </label>
+            <input type="text" placeholder="Date of Birth here ..." />
+          </section>
+          <section className="text-input">
+            <label>
+              Role
+            </label>
+            <input type="text" placeholder="Role here ..." />
           </section>
           <section className="actions">
             <button type='submit'>admit</button>
