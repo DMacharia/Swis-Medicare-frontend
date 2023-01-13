@@ -22,6 +22,7 @@ import Login from "./components/Login";
 import PatientsProfile from "./components/PatientsProfile";
 
 function App() {
+
 	return (
 		<Router>
 			<Header />
@@ -44,7 +45,7 @@ function App() {
 
                 <Sidebar />
             <NewPatientForm />
-			<Route path="/" element={<Adminhome />} />
+			<Route path="/adminhome" element={<Adminhome />} />
 			<Route path="/doctors" element={<DoctorCard />} />
 			<Route path="/patients" element={<PatientCard />} />
 			<Route exact path="/edit/:id" element={<EditDoctor />} />
