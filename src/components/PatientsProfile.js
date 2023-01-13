@@ -1,25 +1,36 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router';
 
-// patientAPI = 'https://swis-medicare.onrender.com/api/v1/patients/12'
+ const patientAPI = 'https://swis-medicare.onrender.com/api/v1/patients'
 
 function PatientsProfile() {
     const [patient, setPatient] = useState([]);
+
+    const {id} = useParams()
     
 
     useEffect(() => {
-        fetch('https://swis-medicare.onrender.com/api/v1/patients/12')
+        fetch(`patientAPI/${id}`)
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => setPatient(data))
     })
     return (
         <div className="patient-profile">
             <h1>Your Personal Data</h1>
-            <div className="patient-info">
-                <p>Name: </p>
-                <p>Age: </p>
-                <p>Gender: </p>
-                <p>Condition: </p>
+        {patient.map((patient) => {
+            return (
+                <div className="patient-info">
+                <p>Name: {patient.firstname} {patient.second_name}</p>
+                <p>Username: {patient.username}</p>
+                <p>Email: {patient.username}</p>
+                <p>Phone Number: {patient.mobile_no}</p>
+                <p>Age :{patient.age}</p>
+                <p>Gender: {patient.gender}</p>
+                <p>Address: {patient.address}</p>
+                <p>Blood Group: {patient.blood_group}</p>
             </div>
+            )
+        })}
         </div>
     );
 }

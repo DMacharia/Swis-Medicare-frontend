@@ -58,9 +58,12 @@ function App() {
 				 {role === 'admin' ?  (<Route path="/admin" element={<Admin />} />) : null}
 			</Routes>
 		) : (
+			<>
+			<Header />
 			<Routes>
-				<Route path='/' element={<Login setStoredToken={setStoredToken} />} />
+				{/* <Route path='/' element={<Login setStoredToken={setStoredToken} />} /> */}
 			</Routes>
+			</>
 		)}
 			{/* <Header /> */}
 

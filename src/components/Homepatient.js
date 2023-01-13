@@ -13,12 +13,7 @@ const Homepatient = () => {
                 </li>
                 <li>
                     <Link to='/profile'>
-                        Medical History
-                    </Link>
-                </li>
-                <li>
-                    <Link to='/profile'>
-                        Personal Data
+                        Patient History
                     </Link>
                 </li>
         </div>

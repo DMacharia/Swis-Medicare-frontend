@@ -17,7 +17,7 @@ export default function Header() {
       </div>
 
       <div id="header-auth">
-        <Link to="/signup">Sign Up</Link>
+        <Link to="/login">Log in</Link>
       </div>
     </header>
   );
