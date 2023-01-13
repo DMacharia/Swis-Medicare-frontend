@@ -5,7 +5,7 @@ import DoctorView from "./components/doctor/Patient";
 import Doctor from "./components/doctor/doctor";
 import Patient from "./components/patient/patient";
 import Admin from "./components/admin/admin";
-// import Login from "./components/login/login";
+import Login from "./components/login/Login";
 import Signup from "./components/signup/signup";
 import DoctorSearch from "./components/doctor/doctorsearch";
 import DoctorList from "./components/doctor/doctorlist";
@@ -18,7 +18,6 @@ import EditDoctor from "./components/adminDoctor/EditDoctor";
 import NewPatientForm from "./components/adminPatient/NewPatientForm";
 import PatientCard from "./components/adminPatient/PatientCard";
 import Homepatient from "./components/Homepatient";
-import Login from "./components/Login";
 import PatientsProfile from "./components/PatientsProfile";
 
 function App() {

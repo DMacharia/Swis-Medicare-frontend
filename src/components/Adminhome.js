@@ -1,6 +1,6 @@
 import React from 'react'
-import NewDoctorForm from './doctor/NewDoctorForm'
-import NewPatientForm from './patient/NewPatientForm'
+import NewDoctorForm from './adminDoctor/NewDoctorForm'
+import NewPatientForm from './adminPatient/NewPatientForm'
 
 const Home = () => {
   return (
