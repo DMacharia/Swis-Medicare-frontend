@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import "./App.css";
 import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
 import Home from "./components/home/home";
@@ -19,12 +20,49 @@ import NewPatientForm from "./components/adminPatient/NewPatientForm";
 import PatientCard from "./components/adminPatient/PatientCard";
 import Homepatient from "./components/Homepatient";
 import PatientsProfile from "./components/PatientsProfile";
+// import { useEffect } from "react";
 
 function App() {
 
+	const [storedToken, setStoredToken] = useState(localStorage.getItem('token'));
+	const [name, setName] = useState('');
+	const [role, setRole] = useState('');
+
+	useEffect(()=> {
+		fetch('https://swis-medicare.onrender.com/api/v1/profile', {
+			method: 'GET',
+			headers: {
+				Accept: 'application/json',
+				"Content-Type": 'application/json',
+				Authorization: `Bearer ${localStorage.token}`, 
+			},
+		})
+		.then((response) => response.json())
+		.then((data) => console.log(data))
+	}, [])
+
 	return (
-		<Router>
-			<Header />
+		<>
+		{/* render routes based on the role of the user currently logged in.*/}
+		{storedToken ? (
+			<Routes>
+				{role === 'admin' && <Adminhome />}
+				{role === 'patient' ? <Homepatient /> : <DoctorList />}
+
+				<Route path="/" element={<Home
+					name={name}
+					storedToken={storedToken}
+					setStoredToken={setStoredToken}
+				 />} />
+
+				 {role === 'admin' ?  (<Route path="/admin" element={<Admin />} />) : null}
+			</Routes>
+		) : (
+			<Routes>
+				<Route path='/' element={<Login setStoredToken={setStoredToken} />} />
+			</Routes>
+		)}
+			{/* <Header /> */}
 
 			<Routes>
 				<Route path="/" element={<Home />} />
@@ -42,8 +80,8 @@ function App() {
 				<Route path="/patientsprofile" element={<PatientsProfile />} />
 				<Route path="/login" element={<Login />} />
 
-                <Sidebar />
-            <NewPatientForm />
+            {/* <Sidebar />
+            <NewPatientForm /> */}
 			<Route path="/adminhome" element={<Adminhome />} />
 			<Route path="/doctors" element={<DoctorCard />} />
 			<Route path="/patients" element={<PatientCard />} />
@@ -51,7 +89,7 @@ function App() {
 			</Routes>
             
 			<Footer />
-		</Router>
+		</>
 	);
 }
 
