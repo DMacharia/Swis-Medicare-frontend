@@ -29,7 +29,7 @@ function App() {
 	const [role, setRole] = useState('');
 
 	useEffect(()=> {
-		fetch('https://swis-medicare.onrender.com/api/v1/profile', {
+		fetch('https://https://swis-medicare-eblx.onrender.com/api/v1/profile', {
 			method: 'GET',
 			headers: {
 				Accept: 'application/json',
