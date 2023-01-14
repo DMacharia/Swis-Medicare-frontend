@@ -1,11 +1,15 @@
-import React, {useState} from 'react'
-import './././login.css';
+import { useState } from "react";
+import "./././login.css";
+import { useNavigate } from "react-router-dom";
+
 function Login() {
-    const [values, setValues] = useState({
-      username: "",
-      password: "",
-    });
-    const handleSubmit = (e) => {
+  const [values, setValues] = useState({
+    username: "",
+    password: "",
+  });
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
     e.preventDefault();
     fetch("https://swis-medicare-eblx.onrender.com/api/v1/login", {
       method: "POST",
@@ -22,15 +26,24 @@ function Login() {
       .then((data) => {
         if (data.jwt) {
           localStorage.setItem("jwt", data.jwt);
+          const role = data.user.role;
+          if (role === "Admin") {
+            navigate("/Adminhome");
+          } else if (role === "Doctor") {
+            navigate("/doctors");
+          } else if (role === "Patient") {
+            navigate("/patient");
+          }
         } else {
           console.log(data.errors);
         }
-        console.log(data)
+        console.log(data);
       })
       .catch((error) => {
         console.log(error);
       });
-    };
+  };
+
   return (
     <div className="login__form">
       <input
@@ -49,11 +62,10 @@ function Login() {
         value={values.password}
         onChange={(e) => setValues({ ...values, password: e.target.value })}
       />
-      <button className='login__btn' type="submit" onClick={handleSubmit}>
+      <button className="login__btn" type="submit" onClick={handleSubmit}>
         Login
       </button>
     </div>
   );
 }
-export default Login
-
+export default Login;
