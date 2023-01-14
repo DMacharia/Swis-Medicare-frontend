@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 
-const doctorAPI = "https://swis-medicare.onrender.com/api/v1/doctors";
+const doctorAPI = "https://https://swis-medicare-eblx.onrender.com/api/v1/doctors";
 
 const EditDoctor = () => {
 
   const [doctorData, setDoctorData] = useState([]);
   let { id } = useParams();
-  let doctor_url =  `https://swis-medicare.onrender.com/doctors/${id}`;
+  let doctor_url =  `https://https://swis-medicare-eblx.onrender.com/doctors/${id}`;
 
   // useEffect(() => {
   //   fetch(doctor_url)
@@ -19,7 +19,7 @@ const EditDoctor = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch(`https://swis-medicare.onrender.com/doctors/${id}`, {
+    fetch(`https://https://swis-medicare-eblx.onrender.com/doctors/${id}`, {
       methhod: "PATCH",
       headers: {
         'content-type': 'application/json',

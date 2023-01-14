@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-const patientAPI = "https://swis-medicare.onrender.com/api/v1/patients/";
+const patientAPI = "https://https://swis-medicare-eblx.onrender.com/api/v1/patients/";
 
 
 const Patient = ({ patient, removePaient }) => {

@@ -10,28 +10,30 @@ const EditPatient = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch(`https://swis-medicare.onrender.com/patients/${id}`, {
-          methhod: "PATCH",
-          headers: {
-            'content-type': 'application/json',
-            "Access-Control-Allow-Origin" : "*"
-          },
-          body: JSON.stringify({
-            first_name: patientData.first_name,
-            second_name: patientData.second_name,
-            username: patientData.username,
-            email: patientData.email,
-            mobile_no: patientData.mobile_no,
-            gender: patientData.gender,
-            blood_group: patientData.blood_group,
-            address: patientData.address,
-            password: patientData.password,
-            date_of_birth: patientData.date_of_birth,
-            role: patientData.role
-          })
-        })
-        .then((response) => response.json())
-        .then((data) => console.log(data))
+        fetch(`https://https://swis-medicare-eblx.onrender.com/patients/${id}`,
+          {
+            methhod: "PATCH",
+            headers: {
+              "content-type": "application/json",
+              "Access-Control-Allow-Origin": "*",
+            },
+            body: JSON.stringify({
+              first_name: patientData.first_name,
+              second_name: patientData.second_name,
+              username: patientData.username,
+              email: patientData.email,
+              mobile_no: patientData.mobile_no,
+              gender: patientData.gender,
+              blood_group: patientData.blood_group,
+              address: patientData.address,
+              password: patientData.password,
+              date_of_birth: patientData.date_of_birth,
+              role: patientData.role,
+            }),
+          }
+        )
+          .then((response) => response.json())
+          .then((data) => console.log(data));
         navigate("/patients");
       };
 
