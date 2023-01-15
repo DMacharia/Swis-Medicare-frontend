@@ -20,6 +20,7 @@ import NewPatientForm from "./components/adminPatient/NewPatientForm";
 import PatientCard from "./components/adminPatient/PatientCard";
 import Homepatient from "./components/Homepatient";
 import PatientsProfile from "./components/PatientsProfile";
+import Remember from "./components/login/remember"
 // import { useEffect } from "react";
 
 function App() {
@@ -75,6 +76,7 @@ function App() {
         <Route path="/patient" element={<Patient />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/remember" element={<Remember />} />
         <Route path="doctor" element={<Doctor />}>
           <Route path="search" element={<DoctorSearch />} />
           <Route path="list" element={<DoctorList />} />
