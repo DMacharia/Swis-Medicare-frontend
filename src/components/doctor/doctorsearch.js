@@ -1,8 +1,6 @@
 import "./patient.css";
 
 export default function DoctorSearch() {
-
-  
   return (
     <section id="doctor-search">
       <form id="doctor-search-form">
