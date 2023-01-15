@@ -157,11 +157,8 @@ li {
   align-items: center;
   justify-content: center;
   height: 5vw;
+  border: thin solid white;
 }
-
-/* #doctor-search-form > * {
-  height: 4vw;
-} */
 
 #doctor-search-form > input {
   display: flex;
@@ -198,6 +195,7 @@ li {
   height: max-content;
   width: 100%;
   display: flex;
+  border: thin solid white;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
