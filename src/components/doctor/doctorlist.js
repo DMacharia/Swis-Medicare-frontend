@@ -11,9 +11,7 @@ export default function DoctorList() {
     const fetchData = async () => {
       setIsLoading(true);
       try {
-        const response = await fetch(
-          "https://https://swis-medicare-eblx.onrender.com/api/v1/patients"
-        );
+        const response = await fetch("http://localhost:3000/api/v1/patients");
         const data = await response.json();
         setData(data);
       } catch (error) {
@@ -24,7 +22,6 @@ export default function DoctorList() {
     };
     fetchData();
   }, []);
-  console.log(data[1]);
 
   function Age(a) {
     let birthDate = moment(a);
