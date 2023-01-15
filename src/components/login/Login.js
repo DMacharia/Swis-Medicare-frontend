@@ -44,44 +44,55 @@
 //       });
 //   };
 
-//   return (
-//     <div className="login__form">
-//       <input
-//         className="login__inputs user__name"
-//         type="text"
-//         name="username"
-//         placeholder="Username"
-//         value={values.username}
-//         onChange={(e) => setValues({ ...values, username: e.target.value })}
-//       />
-//       <input
-//         className="login__inputs user__password"
-//         type="password"
-//         name="password"
-//         placeholder="Password"
-//         value={values.password}
-//         onChange={(e) => setValues({ ...values, password: e.target.value })}
-//       />
-//       <button className="login__btn" type="submit" onClick={handleSubmit}>
-//         Login
-//       </button>
-//     </div>
-//   );
-// }
-// export default Login;
-
 import "./login.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Auth from "../images/login.jpg";
 
 export default function Login() {
+  let navigate = useNavigate();
   let [name, setName] = useState("");
   let [password, setPassword] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
     console.log(name, password);
+
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      fetch("https://swis-medicare-eblx.onrender.com/api/v1/login", {
+        method: "POST",
+        headers: {
+          Accepts: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: name,
+          password: password,
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.jwt) {
+            localStorage.setItem("jwt", data.jwt);
+            const role = data.user.role;
+            if (role === "Admin") {
+              navigate("/Adminhome");
+            } else if (role === "Doctor") {
+              navigate("/doctors");
+            } else if (role === "Patient") {
+              navigate("/patient");
+            }
+          } else {
+            console.log(data.errors);
+          }
+          console.log(data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    };
   }
 
   return (
