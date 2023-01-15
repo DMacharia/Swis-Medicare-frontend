@@ -23,77 +23,76 @@ import PatientsProfile from "./components/PatientsProfile";
 // import { useEffect } from "react";
 
 function App() {
+  const [storedToken, setStoredToken] = useState(localStorage.getItem("token"));
+  const [name, setName] = useState("");
+  const [role, setRole] = useState("");
 
-	const [storedToken, setStoredToken] = useState(localStorage.getItem('token'));
-	const [name, setName] = useState('');
-	const [role, setRole] = useState('');
+  useEffect(() => {
+    fetch("https://https://swis-medicare-eblx.onrender.com/api/v1/profile", {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.token}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data));
+  }, []);
 
-	useEffect(()=> {
-		fetch('https://https://swis-medicare-eblx.onrender.com/api/v1/profile', {
-			method: 'GET',
-			headers: {
-				Accept: 'application/json',
-				"Content-Type": 'application/json',
-				Authorization: `Bearer ${localStorage.token}`, 
-			},
-		})
-		.then((response) => response.json())
-		.then((data) => console.log(data))
-	}, [])
+  return (
+    <>
+      {storedToken ? (
+        <Routes>
+          {role === "admin" && <Adminhome />}
+          {role === "patient" ? <Homepatient /> : <DoctorList />}
 
-	return (
-		<>
-		{/* render routes based on the role of the user currently logged in.*/}
-		{storedToken ? (
-			<Routes>
-				{role === 'admin' && <Adminhome />}
-				{role === 'patient' ? <Homepatient /> : <DoctorList />}
+          <Route
+            path="/"
+            element={
+              <Home
+                name={name}
+                storedToken={storedToken}
+                setStoredToken={setStoredToken}
+              />
+            }
+          />
 
-				<Route path="/" element={<Home
-					name={name}
-					storedToken={storedToken}
-					setStoredToken={setStoredToken}
-				 />} />
+          {role === "admin" ? (
+            <Route path="/admin" element={<Admin />} />
+          ) : null}
+        </Routes>
+      ) : (
+        <>
+          <Header />
+          <Routes>
+          </Routes>
+        </>
+      )}
 
-				 {role === 'admin' ?  (<Route path="/admin" element={<Admin />} />) : null}
-			</Routes>
-		) : (
-			<>
-			<Header />
-			<Routes>
-				{/* <Route path='/' element={<Login setStoredToken={setStoredToken} />} /> */}
-			</Routes>
-			</>
-		)}
-			{/* <Header /> */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/patient" element={<Patient />} />
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="doctor" element={<Doctor />}>
+          <Route path="search" element={<DoctorSearch />} />
+          <Route path="list" element={<DoctorList />} />
+          <Route path=":id" element={<DoctorView />} />
+        </Route>
 
-			<Routes>
-				<Route path="/" element={<Home />} />
-				<Route path="/patient" element={<Patient />} />
-				<Route path="/admin" element={<Admin />} />
-				{/* <Route path="/login" element={<Login />} /> */}
-				<Route path="/signup" element={<Signup />} />
-				<Route path="doctor" element={<Doctor />}>
-					<Route path="search" element={<DoctorSearch />} />
-					<Route path="list" element={<DoctorList />} />
-					<Route path=":id" element={<DoctorView />} />
-				</Route>
+        <Route path="/" element={<Homepatient />} />
+        <Route path="/patientsprofile" element={<PatientsProfile />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/adminhome" element={<Adminhome />} />
+        <Route path="/doctors" element={<DoctorCard />} />
+        <Route path="/patients" element={<PatientCard />} />
+        <Route exact path="/edit/:id" element={<EditDoctor />} />
+      </Routes>
 
-				<Route path="/" element={<Homepatient />} />
-				<Route path="/patientsprofile" element={<PatientsProfile />} />
-				<Route path="/login" element={<Login />} />
-
-            {/* <Sidebar />
-            <NewPatientForm /> */}
-			<Route path="/adminhome" element={<Adminhome />} />
-			<Route path="/doctors" element={<DoctorCard />} />
-			<Route path="/patients" element={<PatientCard />} />
-			<Route exact path="/edit/:id" element={<EditDoctor />} />
-			</Routes>
-            
-			<Footer />
-		</>
-	);
+      <Footer />
+    </>
+  );
 }
 
 export default App;
