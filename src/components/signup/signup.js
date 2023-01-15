@@ -16,6 +16,21 @@ export default function Signup() {
     e.preventDefault();
     console.log(name, email, password, passwordC);
   }
+
+  async function handleSignUp(){
+    let response = await fetch ("", {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({name, email, password, password_confirmation: passwordC})
+    })
+
+    let json = await response.json()
+    let {jwt} =json;
+    localStorage.setItem('jwt', jwt);
+setJwt(jwt)
+  }
   return (
     <main className="auth-container">
       <div className="auth-image">
