@@ -31,7 +31,7 @@ export default function Login() {
           if (role === "Admin") {
             navigate("/Adminhome");
           } else if (role === "Doctor") {
-            navigate("/doctors");
+            navigate("/doctor");
           } else if (role === "Patient") {
             navigate("/patient");
           }
