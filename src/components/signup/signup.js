@@ -1,42 +1,48 @@
 import { Link } from "react-router-dom";
 import Auth from "../images/login.jpg";
-import { useState} from "react";
+import { useState } from "react";
 
 export default function Signup() {
   let [name, setName] = useState("");
   let [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
   let [passwordC, setPasswordC] = useState("");
+  let [jwt, setJwt] = useState(null);
 
   function handleFormButtons(e) {
     e.preventDefault();
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    console.log(name, email, password, passwordC);
-  }
+  // function handleSubmit(e) {
+  //   e.preventDefault();
+  //   console.log(name, email, password, passwordC);
+  // }
 
-  async function handleSignUp(){
-    let response = await fetch ("", {
+  async function handleSignUp() {
+    let response = await fetch("", {
       method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({name, email, password, password_confirmation: passwordC})
-    })
+      body: JSON.stringify({
+        name,
+        email,
+        password,
+        password_confirmation: passwordC,
+      }),
+    });
 
-    let json = await response.json()
-    let {jwt} =json;
-    localStorage.setItem('jwt', jwt);
-setJwt(jwt)
+    let json = await response.json();
+    let { jwt } = json;
+    localStorage.setItem("jwt", jwt);
+    setJwt(jwt);
   }
   return (
     <main className="auth-container">
       <div className="auth-image">
         <img src={Auth} alt="authentication" />
       </div>
-      <form className="authentication" onSubmit={handleSubmit}>
+      <form className="authentication" onSubmit={handleSignUp}>
         <h3>Get started.</h3>
         <span className="form-buttons">
           <button onClick={handleFormButtons}>Patient</button>
