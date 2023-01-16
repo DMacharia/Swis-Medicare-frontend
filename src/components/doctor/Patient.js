@@ -4,6 +4,10 @@ import { useParams } from "react-router-dom";
 export default function DoctorView({ data }) {
   const { id } = useParams();
 
+  function handleSubmit(e) {
+    e.preventDefault();
+  }
+
   return (
     <section className="patient-display">
       <h3>John Doe</h3>
@@ -15,7 +19,7 @@ export default function DoctorView({ data }) {
         <span className="patient-attrs">Blood Type: A-</span>
       </div>
 
-      <form id="patient-display-form">
+      <form id="patient-display-form" onSubmit={handleSubmit}>
         <span className="patient-display-conts1">
           <h5>Patients Description</h5>
           <p>
