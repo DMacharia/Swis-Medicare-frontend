@@ -3,13 +3,13 @@ import DoctorContainer from './DoctorContainer';
 import NewDoctorForm from './NewDoctorForm';
 import './doctor.css'
 
-const doctorAPI = "https://https://swis-medicare-eblx.onrender.com/api/v1/doctors";
+const doctorAPI = "https://swis-medicare-eblx.onrender.com/api/v1/doctors";
 
 const DoctorCard = () => {
   const [doctors, setDoctors] = useState([]);
   const [formVisible, setFormVisible] = useState(false);
 
-  
+
   useEffect(() => {
     fetch(doctorAPI)
       .then(res => res.json())
@@ -46,7 +46,7 @@ const DoctorCard = () => {
         </button>
         {formVisible ? <NewDoctorForm addDoctor={addDoctor} /> : null}
       </div>
-      
+
     </div>
   )
 }

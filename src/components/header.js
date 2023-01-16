@@ -10,7 +10,7 @@ export default function Header() {
 
       <div id="header-container">
         <Link to="/patient">Patient</Link>
-        <Link to="/doctor">Doctor</Link>
+        {/* <Link to="/doctor">Doctor</Link> */}
         <Link to="/patient">About Us</Link>
         <Link to="/patient">Testimonials</Link>
         <Link to="/patient">Contact Us</Link>

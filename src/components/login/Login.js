@@ -1,13 +1,14 @@
-import { useState } from "react";
-import "./././login.css";
-import { useNavigate } from "react-router-dom";
 
-function Login() {
-  const [values, setValues] = useState({
-    username: "",
-    password: "",
-  });
-  const navigate = useNavigate();
+import "./login.css";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import Auth from "../images/login.jpg";
+
+export default function Login() {
+  let navigate = useNavigate();
+  let [name, setName] = useState("");
+  let [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,8 +19,8 @@ function Login() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        username: values.username,
-        password: values.password,
+        username: name,
+        password: password,
       }),
     })
       .then((res) => res.json())
@@ -30,7 +31,7 @@ function Login() {
           if (role === "Admin") {
             navigate("/Adminhome");
           } else if (role === "Doctor") {
-            navigate("/doctors");
+            navigate("/doctor");
           } else if (role === "Patient") {
             navigate("/patient");
           }
@@ -45,27 +46,36 @@ function Login() {
   };
 
   return (
-    <div className="login__form">
-      <input
-        className="login__inputs user__name"
-        type="text"
-        name="username"
-        placeholder="Username"
-        value={values.username}
-        onChange={(e) => setValues({ ...values, username: e.target.value })}
-      />
-      <input
-        className="login__inputs user__password"
-        type="password"
-        name="password"
-        placeholder="Password"
-        value={values.password}
-        onChange={(e) => setValues({ ...values, password: e.target.value })}
-      />
-      <button className="login__btn" type="submit" onClick={handleSubmit}>
-        Login
-      </button>
-    </div>
+    <main className="auth-container">
+      <div className="auth-image">
+        <img src={Auth} alt="authentication" />
+      </div>
+      <form className="authentication" onSubmit={handleSubmit}>
+        <h3>Welcome Back</h3>
+        <input
+          type="text"
+          placeholder="Username"
+          className="form-input"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          className="form-input"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <Link to="/remember" className="form-links">
+          Forgot Password
+        </Link>
+        <button type="submit" className="submit-button">
+          Submit
+        </button>
+        <Link to="/signup" className="form-links">
+          No account join us?
+        </Link>
+      </form>
+    </main>
   );
 }
-export default Login;

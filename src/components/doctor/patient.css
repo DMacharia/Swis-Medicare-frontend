@@ -157,11 +157,8 @@ li {
   align-items: center;
   justify-content: center;
   height: 5vw;
+  border: thin solid white;
 }
-
-/* #doctor-search-form > * {
-  height: 4vw;
-} */
 
 #doctor-search-form > input {
   display: flex;
@@ -198,7 +195,182 @@ li {
   height: max-content;
   width: 100%;
   display: flex;
+  border: thin solid white;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+}
+
+.patient-display {
+  /* border: thin solid black; */
+  width: 100%;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.patient-display * {
+  /* border: thin solid black; */
+  /* width: 100%; */
+  margin-top: 0.3vw;
+  margin-bottom: 0.3vw;
+}
+
+.patient-display h3 {
+  height: 3vw;
+  font-size: 2vw;
+  color: #0e3386;
+}
+
+#patient-info {
+  width: 100%;
+  height: 4vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.patient-attrs {
+  width: 15%;
+  height: 80%;
+  color: #0e3386;
+  font-size: 1.3vw;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#patient-display-form {
+  width: 100%;
+  height: max-content;
+  /* border: thin solid black; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+#patient-display-form * {
+  /* border: thin solid black; */
+  margin-top: 0.3vw;
+  margin-top: 0.3vw;
+}
+
+.patient-display-conts1 {
+  height: max-content;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.patient-display-conts1 p {
+  font-size: 1.3vw;
+  height: max-content;
+  text-align: center;
+  width: 90%;
+}
+.patient-display-conts1 h5 {
+  font-size: 1.5vw;
+  height: 2vw;
+  color: #0e3386;
+}
+
+.patient-display-conts {
+  height: 15vw;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.patient-display-conts p {
+  height: 90%;
+  width: 40%;
+  font-size: 1.5vw;
+  font-weight: bold;
+  display: flex;
+  color: #0e3386;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.patient-display-conts textarea {
+  height: 90%;
+  width: 40%;
+  font-size: 1.3vw;
+  border: thin solid #0e3386;
+  color: #0e3386;
+}
+
+textarea {
+  border: thin solid #0e3386;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+textarea:focus {
+  outline: thin solid #0e3386;
+}
+
+.patient-display-disease {
+  width: 100%;
+  height: 4vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.patient-display-disease p {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.5vw;
+  width: 40%;
+  height: 4vw;
+  font-weight: bold;
+  color: #0e3386;
+  /* color: #0e3386; */
+}
+.patient-display-disease input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.3vw;
+  width: 40%;
+  height: 4vw;
+  border: thin solid #0e3386;
+  color: #0e3386;
+}
+
+input:focus {
+  outline: thin solid #0e3386;
+}
+
+#patient-display-cont-button {
+  width: 20%;
+  height: 3vw;
+  cursor: pointer;
+  border: thin solid #0e3386;
+  border-radius: 4vw;
+  background-color: #0e3386;
+  color: white;
+  font-size: 1.3vw;
 }

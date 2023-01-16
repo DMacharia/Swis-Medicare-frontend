@@ -1,35 +1,109 @@
-*{
-    margin: 0;
-    padding: 0;
-    /* background-color: aliceblue; */
-}
-.login__form{
-    background-color: #fff;
-    width: 60%;
-    display: block;
-    margin: 120px auto;
+.auth-container {
+    height: 47.5vw;
+    display: flex;
+    flex-direction: row;
     align-items: center;
-    padding: 40px;
-    border: 1px solid black;
-    border-radius: 10px;
-}
-.login__inputs{
-    display: block;
-    margin: 30px auto;
-    padding: 20px;
-}
-.login__btn{
-    display: block;
-    margin: 0 auto;
-    padding: 16px 32px;
-    border-radius: 30px;
-    background-color: transparent;
-    border: 1px solid black;
-    transition: all 200ms ease-in-out;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
-}
-.login__btn:hover{
-    /* opacity: 0.3; */
-    background: aliceblue;
+    justify-content: center;
+  }
+
+  .auth-container * {
+    /* border: thin solid black; */
+    font-size: 1.3vw;
+  }
+
+  .auth-image {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #0e3386;
+  }
+
+  .authentication {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .authentication > * {
+    margin-top: 0.5vw;
+    margin-bottom: 0.5vw;
+  }
+
+  .auth-image > img {
+    width: 100%;
+  }
+
+  .authentication > h3 {
+    margin-top: -0.5vw;
+    width: 100%;
+    height: 10%;
+    font-size: 1.8vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #0e3386;
+  }
+
+  .form-buttons {
+    width: 80%;
+    height: 7%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .form-buttons > button {
+    background-color: #0e3386;
+    color: white;
+    border: thin solid #0e3386;
+  }
+
+  .form-input {
+    height: 6%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 5vw;
+    color: #0e3386;
+    border: thin solid #0e3386;
+  }
+
+  .submit-button {
+    width: 80%;
+    height: 6%;
+    background-color: #0e3386;
     cursor: pointer;
-}
+    color: white;
+    border-radius: 4vw;
+    border: thin solid #0e3386;
+  }
+
+  .form-buttons > * {
+    height: 100%;
+    background-color: white;
+    width: 30%;
+  }
+
+  .form-buttons > button:active {
+    background-color: blue;
+    color: white;
+  }
+
+  input:focus {
+    outline: thin solid #0e3386;
+  }
+
+  .form-links {
+    text-decoration: none;
+    color: #0e3386;
+  }

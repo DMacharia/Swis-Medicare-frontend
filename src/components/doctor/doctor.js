@@ -6,7 +6,7 @@ export default function Doctor() {
     <main id="doctor">
       <span id="doctor-header">
         <Link to="/doctor/search">Search</Link>
-        <Link to="/doctor/list">List</Link>
+        <Link to="/doctor/list">Patients</Link>
       </span>
       <section id="doctor-container">
         <Outlet />
