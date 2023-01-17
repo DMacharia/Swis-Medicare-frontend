@@ -1,99 +1,113 @@
-import { useEffect, useState } from "react";
-import "./App.css";
-import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
-import Home from "./components/home/home";
-import DoctorView from "./components/doctor/Patient";
-import Doctor from "./components/doctor/doctor";
-import Patient from "./components/patient/patient";
-import Admin from "./components/admin/admin";
-import Login from "./components/login/Login";
-import Signup from "./components/signup/signup";
-import DoctorSearch from "./components/doctor/doctorsearch";
-import DoctorList from "./components/doctor/doctorlist";
-import Header from "./components/header";
-import Footer from "./components/aside";
-import Adminhome from "./components/Adminhome";
-import Sidebar from "./components/Sidebar";
-import DoctorCard from "./components/adminDoctor/DoctorCard";
-import EditDoctor from "./components/adminDoctor/EditDoctor";
-import NewPatientForm from "./components/adminPatient/NewPatientForm";
-import PatientCard from "./components/adminPatient/PatientCard";
-import Homepatient from "./components/Homepatient";
-import PatientsProfile from "./components/PatientsProfile";
-import Remember from "./components/login/remember";
-// import { useEffect } from "react";
+import './App.css';
+import Header from './common/header/Header';
+import Footer from './common/footer/Footer';
+import Login from '../src/common/header/Login'
+import Register from '../src/common/header/Register'
+import Reset from '../src/common/header/Reset'
+import { Routes, Route } from 'react-router-dom';
+import Sdata from "./components/shops/Sdata"
+import Data from "./components/Data"
+import { useEffect, useState } from 'react';
+import Pages from './pages/Pages';
+import Cart from './common/cart/Cart';
+import Dashboard from './common/header/Dashboard';
+import { auth, db, logout } from "./firebase";
+import { query, collection, getDocs, where } from "firebase/firestore";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
+import AdminHome from './components/admin/AdminHome';
+import DoctorCard from './components/admin/doctor/DoctorCard';
+import PatientCard from './components/admin/patient/PatientCard';
+import Sidebar from './components/admin/Sidebar';
+import EditDoctor from './components/admin/doctor/DoctorCard';
+import NotAuthorized from './components/admin/NotAuthorized';
+import Landing from './Landing/landing';
+
 
 function App() {
-  const [storedToken, setStoredToken] = useState(localStorage.getItem("token"));
+  const [user, loading, error] = useAuthState(auth);
   const [name, setName] = useState("");
-  const [role, setRole] = useState("");
-
+  const navigate = useNavigate();
+  const fetchUserName = async () => {
+    try {
+      const q = query(collection(db, "users"), where("uid", "==", user?.uid));
+      const doc = await getDocs(q);
+      const data = doc.docs[0].data();
+      setName(data.name);
+    } catch (err) {
+      console.error(err);
+      // alert("An error occured while fetching user data");
+    }
+  };
   useEffect(() => {
-    fetch("https://swis-medicare-eblx.onrender.com/api/v1/profile", {
-      method: "GET",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.token}`,
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => console.log(data));
-  }, []);
+    if (loading) return;
+    if (!user) return navigate("/");
+    fetchUserName();
+  }, [user, loading]);
+ 
+  const { productItems } = Data
+  const { shopItems } = Sdata
 
+ 
+  const [CartItem, setCartItem] = useState([])
+
+  const addToCart = (product) => {
+    const productExit = CartItem.find((item) => item.id === product.id)
+
+    if (productExit) {
+      setCartItem(CartItem.map((item) => (item.id === product.id ? { ...productExit, qty: productExit.qty + 1 } : item)))
+    } else {
+      setCartItem([...CartItem, { ...product, qty: 1 }])
+    }
+  }
+
+  const removeFromCart = (product) => {
+    setCartItem(CartItem.filter((item) => item.id !== product.id))
+  }
+
+  const decreaseQty = (product) => {
+    const productExit = CartItem.find((item) => item.id === product.id)
+
+ 
+    if (productExit.qty === 1) {
+      setCartItem(CartItem.filter((item) => item.id !== product.id))
+    } else {
+   
+      setCartItem(CartItem.map((item) => (item.id === product.id ? { ...productExit, qty: productExit.qty - 1 } : item)))
+    }
+  }
   return (
-    <>
-      {storedToken ? (
-        <Routes>
-          {role === "admin" && <Adminhome />}
-          {role === "patient" ? <Homepatient /> : <DoctorList />}
-
-          <Route
-            path="/"
-            element={
-              <Home
-                name={name}
-                storedToken={storedToken}
-                setStoredToken={setStoredToken}
-              />
-            }
-          />
-
-          {role === "admin" ? (
-            <Route path="/admin" element={<Admin />} />
-          ) : null}
-        </Routes>
-      ) : (
-        <>
-          <Header />
-          <Routes></Routes>
-        </>
-      )}
-
+    <div className="App">
+      <Header CartItem={CartItem} />
+      {user?.email === "peterparker@gmail.com" ? (
+          <>
+            {/* <Sidebar /> */}
+            <Routes>
+              <Route path='adminhome' element={<AdminHome />} />
+              <Route path='/doctors' element={<DoctorCard />} />
+              <Route path='/patients' element={<PatientCard />} />
+              <Route exact path='/edit/:id' element={<EditDoctor/>}/>
+            </Routes>
+          </>
+        ) : null}
+        {user?.email === "john@example.com" ? (
+          <Routes>
+            <Route path='/patients' element={<PatientCard />} />
+          </Routes>
+        ) : null}
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/patient" element={<Patient />} />
-        <Route path="/admin" element={<Admin />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/remember" element={<Remember />} />
-        <Route path="doctor" element={<Doctor />}>
-          <Route path="search" element={<DoctorSearch />} />
-          <Route path="list" element={<DoctorList />} />
-          <Route path="list/:id" element={<DoctorView />} />
-          <Route path="display" element={<DoctorView />} />
-        </Route>
-
-        <Route path="/" element={<Homepatient />} />
-        <Route path="/patientsprofile" element={<PatientsProfile />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/adminhome" element={<Adminhome />} />
-        <Route path="/doctors" element={<DoctorCard />} />
-        <Route path="/patients" element={<PatientCard />} />
-        <Route exact path="/edit/:id" element={<EditDoctor />} />
+        <Route path='/' element={<Pages productItems={productItems} addToCart={addToCart} shopItems={shopItems}/>}   />
+        <Route path='/cart' element={<Cart CartItem={CartItem} addToCart={addToCart} decreaseQty={decreaseQty} removeFromCart={removeFromCart}/>}  />
+        <Route path='/login' element={<Login />} />
+        <Route path='/pages' element={<Landing />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='/reset' element={<Reset />} />
+        <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/contact' element={<Footer />} />
       </Routes>
-
-      <Footer />
-    </>
+      {/* <Footer /> */}
+      
+    </div>
   );
 }
 
