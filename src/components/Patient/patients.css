@@ -1,0 +1,21 @@
+.patient-h2 {
+  text-align: center;
+}
+
+.patient-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.patient-table-row {
+  border-bottom: 1px solid #ccc;
+}
+
+.patient-table-header {
+  font-weight: bold;
+  background-color: #f2f2f2;
+}
+
+.patient-table-cell {
+  padding: 10px;
+}
