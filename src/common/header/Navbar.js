@@ -7,6 +7,8 @@ import { useAuthState } from "react-firebase-hooks/auth";
 const Navbar = () => {
 
   const [MobileMenu, setMobileMenu] = useState(false)
+  const [patients, setPatients] = useState([]);
+  const [doctors, setDoctors] = useState([]);
 
   const [user, loading, error] = useAuthState(auth);
   const [name, setName] = useState("");
@@ -30,6 +32,18 @@ const Navbar = () => {
     fetchUserName();
   }, [user, loading]);
 
+  useEffect(() => {
+		fetch("https://swis-medicare-eblx.onrender.com/api/v1/patients")
+			.then((response) => response.json())
+			.then((data) => setPatients(data));
+	});
+
+  useEffect(() => {
+		fetch("https://swis-medicare-eblx.onrender.com/api/v1/doctors")
+			.then((response) => response.json())
+			.then((data) => setDoctors(data));
+	});
+
 
   return (
     <>
@@ -52,15 +66,7 @@ const Navbar = () => {
               </li>
               <li>
                 {!user ? <Link to='/login'>Login</Link> : (
-                  user?.email === "peterparker@gmail.com" ? <Link to='/adminhome'><p style={{
-                    color: '#0f3460',
-                    fontWeight: 'bold',
-                    fontSize: '22px'
-                  }}>Admin Page</p></Link> : <Link to='/doctors' style={{
-                    color: '#0f3460',
-                    fontWeight: 'bold',
-                    fontSize: '22px'
-                  }}>doctor Page</Link>
+                  user?.email === "peterparker@gmail.com" ? <Link to='/adminhome' style={{color: '#0f3460', fontWeight: 'bold', fontSize: '22px'}}>Admin Page</Link> : (user?.email === "bob@example.com" ? <Link style={{color: '#0f3460', fontWeight: 'bold', fontSize: '22px'}}>Patient</Link> : (user?.email === "john@example.com" ? <Link style={{color: '#0f3460', fontWeight: 'bold', fontSize: '22px'}}>Doctor</Link> : null))
                 )}
               </li>
               <li>
@@ -82,3 +88,8 @@ const Navbar = () => {
 }
 
 export default Navbar
+
+
+//  color: '#0f3460',
+// fontWeight: 'bold',
+// fontSize: '22px'

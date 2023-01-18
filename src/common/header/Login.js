@@ -16,7 +16,9 @@ const Login = () => {
         if (loading) {
           return;
         }
-        if (user) navigate("/adminhome");
+        if (user){
+          navigate("/dashboard");
+        }
       }, [user, loading]);
   
  

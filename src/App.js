@@ -40,6 +40,8 @@ function App() {
       // alert("An error occured while fetching user data");
     }
   };
+
+
   useEffect(() => {
     if (loading) return;
     if (!user) return navigate("/");
@@ -80,26 +82,26 @@ function App() {
   return (
     <div className="App">
       <Header CartItem={CartItem} />
-      {user?.email === "peterparker@gmail.com" || "" || " " ? (
+      {user?.email === "peterparker@gmail.com" ? (
           <>
             {/* <Sidebar /> */}
             <Routes>
-              <Route path='adminhome' element={<AdminHome />} />
+              <Route path='/adminhome' element={<AdminHome />} />
               <Route path='/doctors' element={<DoctorCard />} />
               <Route path='/patients' element={<Patient />} />
               <Route exact path='/edit/:id' element={<EditDoctor/>}/>
             </Routes>
           </>
         ) : null}
-        {user?.email === "john@example.com" || "" || "" || "" ? (
+        {user?.email === "john@example.com" || "alice@example.com" || "michael@example.com" || "mantha@example.com" ? (
           <Routes>
-            <Route path='/doctor' element={<PatientCard />} />
+            <Route path='/doctor' element={<Patient />} />
           </Routes>
         ) : null}
 
-        {user?.email === "john@example.com" || "" || "" || "" ? (
+        {user?.email === "bob@example.com" || "linda@example.com" || "william@example.com" || "elizabeth@example.com  " ? (
           <Routes>
-            {/* <Route path='/patients' element={<PatientCard />} /> */}
+            <Route path='/patients' element={<Patient />} />
           </Routes>
         ) : null}
       <Routes>
