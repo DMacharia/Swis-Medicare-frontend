@@ -22,12 +22,16 @@ const MyProfile = () => {
     }
   };
 
+  fetchUserName();
+
+  const userID = user?.email;
+
 
   const [patientFormVisible, setPatientFormVisible] = useState(false);
   return (
     <div>
       
-      <p>{user?.email}</p>
+      <p>{userID}</p>
 
       <div className='buttons'>
               <button
