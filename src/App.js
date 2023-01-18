@@ -24,6 +24,7 @@ import NotAuthorized from './components/admin/NotAuthorized';
 import Landing from './Landing/landing';
 import Patient from './components/admin/patient/Patient';
 import MyProfile from './components/doctor/MyProfile';
+import PatientProfile from './components/patient/PatientProfile';
 
 
 function App() {
@@ -83,7 +84,7 @@ function App() {
   return (
     <div className="App">
       <Header CartItem={CartItem} />
-      {user?.email === "peterparker@gmail.com" ? (
+      {user?.email === "peter@example.com" ? (
           <>
             {/* <Sidebar /> */}
             <Routes>
@@ -102,7 +103,7 @@ function App() {
 
         {user?.email === "bob@example.com" || "linda@example.com" || "william@example.com" || "elizabeth@example.com  " ? (
           <Routes>
-            <Route path='/patients' element={<Patient />} />
+            <Route path='/patient' element={<PatientProfile/>} />
           </Routes>
         ) : null}
       <Routes>

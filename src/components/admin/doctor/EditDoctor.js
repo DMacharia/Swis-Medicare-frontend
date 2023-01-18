@@ -19,7 +19,7 @@ const EditDoctor = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch(`https://swis-medicare-eblx.onrender.com/api/v1/doctors/${id}`, {
+    fetch(`/api/v1/doctors/${id}`, {
       methhod: "PATCH",
       headers: {
         'content-type': 'application/json',

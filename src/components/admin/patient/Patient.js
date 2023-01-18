@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./patient.css";
 
-const patientsAPI = "https://swis-medicare-eblx.onrender.com/api/v1/patients";
+const patientsAPI = "https://swis-medicare-asgm.onrender.com/api/v1/patients";
 
 const Patient = () => {
 	// const {first_name, second_name, username, email,mobile_no, gender, blood_group, address, password, date_of_birth, role } = patient;

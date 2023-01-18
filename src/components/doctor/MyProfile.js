@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import CreatePatient from './CreatePatient';
 import { auth, db } from "../../firebase";
 import { query, collection, getDocs, where } from "firebase/firestore";
+import Profile from '../Profile';
 
 const MyProfile = () => {
 
@@ -26,7 +27,7 @@ const MyProfile = () => {
   const userID = user?.email;
 
 //   useEffect(() => {
-//     fetch("https://swis-medicare-eblx.onrender.com/api/v1/users")
+//     fetch("/api/v1/users")
 //         .then((response) => response.json())
 //         .then((data) => {
 //             console.log(data);
@@ -37,7 +38,7 @@ const MyProfile = () => {
 // }, []);
 
   useEffect(() => {
-    fetch("https://swis-medicare-eblx.onrender.com/api/v1/users")
+    fetch("/api/v1/users")
     .then(res => res.json())
     .then(data => {
       const userEmail = userID
@@ -56,53 +57,7 @@ const MyProfile = () => {
   const [patientFormVisible, setPatientFormVisible] = useState(false);
   return (
     <div>
-      <p>{userID}</p>
-
-      <p>Hello {fake?.username}</p>
-
-      <div className="doctor_profile">
-        <h2>{fake?.role}</h2>
-      </div>
-      {fake?.role === "Admin" && (
-        <>
-          <div>{fake?.username}</div>
-          <div>
-            {fake?.first_name} {fake?.second_name}
-          </div>
-          <div>{fake?.email}</div>
-          <div>{fake?.mobile_no}</div>
-          <div>{fake?.address}</div>
-          <div>{fake?.title}</div>
-        </>
-      )}
-      {fake?.role === "Doctor" ? (
-        <>
-          <div>{fake?.username}</div>
-          <div>
-            {fake?.first_name} {fake?.second_name}
-          </div>
-          <div>{fake?.email}</div>
-          <div>{fake?.mobile_no}</div>
-          <div>{fake?.reg_no}</div>
-          <div>{fake?.emergency_no}</div>
-          <div>{fake?.address}</div>
-          <div>{fake?.speciality}</div>
-        </>
-      ) : (
-        <>
-          <div>{fake?.username}</div>
-          <div>
-            {fake?.first_name} {fake?.second_name}
-          </div>
-          <div>{fake?.email}</div>
-          <div>{fake?.gender}</div>
-          <div>{fake?.mobile_no}</div>
-          <div>{fake?.address}</div>
-          <div>{fake?.blood_group}</div>
-          <div>{fake?.date_of_birth}</div>
-        </>
-      )}
-
+      <Profile />
       <div className="buttons">
         <button onClick={() => setPatientFormVisible(!patientFormVisible)}>
           {patientFormVisible ? "Hide This Form" : "Admit Patient"}

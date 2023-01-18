@@ -2,7 +2,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Histories from "./Histories";
 import Home from "./Home";
-import Profile from "./Profile";
+import Profile from "./PatientProfile";
 import "./dashboard.css";
 
 function Dashboard() {

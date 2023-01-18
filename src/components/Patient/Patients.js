@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./patients.css";
 
-const patientsAPI = "https://swis-medicare-eblx.onrender.com/api/v1/patients";
+const patientsAPI = "https://swis-medicare-asgm.onrender.com/api/v1/patients";
 
 const Patients = () => {
   const [patients, setPatients] = useState([]);

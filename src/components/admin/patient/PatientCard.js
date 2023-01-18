@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import NewPatientForm from './NewPatientForm';
 import PatientContainer from './PatientContainer';
 import './patient.css'
-const patientAPI = "https://swis-medicare-eblx.onrender.com/api/v1/patients";
+const patientAPI = "/api/v1/patients";
 
 const PatientCard = () => {
     const [patients, setPatients] = useState([]);

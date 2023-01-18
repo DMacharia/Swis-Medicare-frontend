@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import './doctor.css'
 
-const doctorAPI = "https://swis-medicare-eblx.onrender.com/api/v1/doctors/";
+const doctorAPI = "https://swis-medicare-asgm.onrender.com/api/v1/doctors/";
 
 const Doctor = ({ doctor, removeDoctor }) => {
   const { first_name, second_name, username, email, reg_no, mobile_no, emergency_no, address, speciality, role} = doctor;

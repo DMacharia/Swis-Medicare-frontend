@@ -3,7 +3,7 @@ import DoctorContainer from './DoctorContainer';
 import NewDoctorForm from './NewDoctorForm';
 import './doctor.css'
 
-const doctorAPI = "https://swis-medicare-eblx.onrender.com/api/v1/doctors";
+const doctorAPI = "https://swis-medicare-asgm.onrender.com/api/v1/doctors";
 
 const DoctorCard = () => {
   const [doctors, setDoctors] = useState([]);

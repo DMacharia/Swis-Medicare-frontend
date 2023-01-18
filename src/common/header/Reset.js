@@ -29,9 +29,6 @@ function Reset() {
         >
           Send password reset email
         </button>
-        <div style={{color: '#fff'}}>
-          Don't have an account? <Link to="/register" style={{color: 'red'}}>Register</Link> now.
-        </div>
       </div>
     </div>
   );

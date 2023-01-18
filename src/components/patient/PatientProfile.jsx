@@ -1,7 +1,8 @@
 import React, { useState , useEffect} from "react";
+import Profile from "../Profile";
 import "./profile.css";
 
-function Profile() {
+function PatientProfile() {
   const [patient, setPatient] = useState({});
   const [imageUrl, setImageUrl] = useState(null);
 
@@ -23,7 +24,8 @@ function Profile() {
     <div className="dashboard">
       <div className="profile">
         <h2>Your Profile</h2>
-        <div className="profile-info">
+        <Profile />
+        {/* <div className="profile-info">
           <img
             src={imageUrl ? imageUrl : patient.photo_url}
             alt="Patient"
@@ -41,10 +43,10 @@ function Profile() {
           <p>Date of Birth: {patient.date_of_birth}</p>
           <p>Allergies: {patient.allergies}</p>
           <p>Emergency Contact: {patient.emergency_contact}</p>
-        </div>
+        </div> */}
         <button className="edit-button">Edit Profile</button>
       </div>
     </div>
   );
 }
-export default Profile;
+export default PatientProfile;

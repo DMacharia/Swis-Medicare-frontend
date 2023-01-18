@@ -30,7 +30,9 @@ const Register = () => {
   return (
     <div className="register">
         <div className="register__container">
-            <h1 style={{color: 'red', paddingBottom: 20, fontStyle: 'italic'}}>Fly-Oceans</h1>
+            <h1 style={{color: 'red', paddingBottom: 20, fontStyle: 'italic'}}>Swiss-Medicare</h1>
+            <h3>Register This User</h3>
+            <p>Key in the exact same values you entered above</p>
             <input
                 type="text"
                 className="register__textBox"
@@ -55,15 +57,6 @@ const Register = () => {
             <button className="register__btn" onClick={register}>
                 Register
             </button>
-            <button
-                className="register__btn register__google"
-                onClick={signInWithGoogle}
-            >
-                Register with Google
-            </button>
-            <div style={{color: '#fff'}}>
-                Already have an account? <Link to="/login" style={{color: 'red'}}>Login</Link> now.
-            </div>
         </div>
     </div>
   )

@@ -10,7 +10,7 @@ const EditPatient = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch(`https://swis-medicare-eblx.onrender.com/patients/${id}`, {
+        fetch(`/patients/${id}`, {
           methhod: "PATCH",
           headers: {
             'content-type': 'application/json',

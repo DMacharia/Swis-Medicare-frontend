@@ -33,7 +33,7 @@ const Navbar = () => {
   }, [user, loading]);
 
   useEffect(() => {
-		fetch("https://swis-medicare-eblx.onrender.com/api/v1/patients")
+		fetch("https://swis-medicare-asgm.onrender.com/api/v1/patients")
 			.then((response) => response.json())
 			.then((data) => {
                 setPatientsMail(data.map(patient => patient.email))
@@ -42,7 +42,7 @@ const Navbar = () => {
 	},[]);
 
   useEffect(() => {
-		fetch("https://swis-medicare-eblx.onrender.com/api/v1/doctors")
+		fetch("/api/v1/doctors")
 			.then((response) => response.json())
 			.then((data) => {
                 setDoctorsMail(data.map(doctor => doctor.email))
@@ -72,7 +72,7 @@ const Navbar = () => {
               </li>
               <li>
                 {!user ? <Link to='/login'>Login</Link> : (
-                  user?.email === "peterparker@gmail.com" ? <Link to='/adminhome' style={{color: '#0f3460', fontWeight: 'bold', fontSize: '22px'}}>Admin Page</Link> : (patientsMail.includes(user?.email) ? <Link style={{color: '#0f3460', fontWeight: 'bold', fontSize: '22px'}}>Patient</Link> : (doctorsMail.includes(user?.email) ? <Link style={{color: '#0f3460', fontWeight: 'bold', fontSize: '22px'}}>Doctor</Link> : null))
+                  user?.email === "peter@example.com" ? <Link to='/adminhome' style={{color: '#0f3460', fontWeight: 'bold', fontSize: '22px'}}>Admin Page</Link> : (patientsMail.includes(user?.email) ? <Link to='/patient' style={{color: '#0f3460', fontWeight: 'bold', fontSize: '22px'}}>Patient</Link> : (doctorsMail.includes(user?.email) ? <Link style={{color: '#0f3460', fontWeight: 'bold', fontSize: '22px'}}>Doctor</Link> : null))
                 )}
               </li>
               <li>
