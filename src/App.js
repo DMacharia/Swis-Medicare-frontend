@@ -17,11 +17,12 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import AdminHome from './components/admin/AdminHome';
 import DoctorCard from './components/admin/doctor/DoctorCard';
-import PatientCard from './components/admin/patient/PatientCard';
+// import PatientCard from './components/admin/patient/PatientCard';
 import Sidebar from './components/admin/Sidebar';
 import EditDoctor from './components/admin/doctor/DoctorCard';
 import NotAuthorized from './components/admin/NotAuthorized';
 import Landing from './Landing/landing';
+import Patient from './components/admin/patient/Patient';
 
 
 function App() {
@@ -85,14 +86,14 @@ function App() {
             <Routes>
               <Route path='adminhome' element={<AdminHome />} />
               <Route path='/doctors' element={<DoctorCard />} />
-              <Route path='/patients' element={<PatientCard />} />
+              <Route path='/patients' element={<Patient />} />
               <Route exact path='/edit/:id' element={<EditDoctor/>}/>
             </Routes>
           </>
         ) : null}
         {user?.email === "john@example.com" ? (
           <Routes>
-            <Route path='/patients' element={<PatientCard />} />
+            {/* <Route path='/patients' element={<PatientCard />} /> */}
           </Routes>
         ) : null}
       <Routes>
