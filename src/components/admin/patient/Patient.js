@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "./patients.css";
+import "./patient.css";
 
 const patientsAPI = "https://swis-medicare-eblx.onrender.com/api/v1/patients";
 
@@ -92,24 +92,6 @@ const Patient = () => {
 				})}
 			</div>
 		</div>
-		// <div className='patients_container'>
-		//     <div className='app_patients'>
-		//     <p style={{color: 'black'}}>Name: <span>{first_name} {second_name}</span></p>
-		//       <p>Username: <span>{username}</span></p>
-		//       <p>Email: <span>{email}</span></p>
-		//       <p>Phone No: <span>{mobile_no}</span></p>
-		//       <p>Emergency no: <span>{gender}</span></p>
-		//       <p>address: <span>{address}</span></p>
-		//       <p>Blood Group: <span>{blood_group}</span></p>
-		//       <p>Date of Birth: <span>{date_of_birth}</span></p>
-		//       <div className='doctor_action'>
-		//       <Link to={`/edit/${patient.id}`}>Edit</Link>
-		//         {/* <button onClick={onDeleteClick} >
-		//           Fire
-		//         </button> */}
-		//       </div>
-		//     </div>
-		// </div>
 	);
 };
 

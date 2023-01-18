@@ -23,6 +23,7 @@ import EditDoctor from './components/admin/doctor/DoctorCard';
 import NotAuthorized from './components/admin/NotAuthorized';
 import Landing from './Landing/landing';
 import Patient from './components/admin/patient/Patient';
+import MyProfile from './components/doctor/MyProfile';
 
 
 function App() {
@@ -113,6 +114,7 @@ function App() {
         <Route path='/reset' element={<Reset />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/contact' element={<Footer />} />
+        <Route path='/doctor' element={<MyProfile />} />
       </Routes>
       {/* <Footer /> */}
       
