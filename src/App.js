@@ -80,7 +80,7 @@ function App() {
   return (
     <div className="App">
       <Header CartItem={CartItem} />
-      {user?.email === "peterparker@gmail.com" ? (
+      {user?.email === "peterparker@gmail.com" || "" || " " ? (
           <>
             {/* <Sidebar /> */}
             <Routes>
@@ -91,7 +91,13 @@ function App() {
             </Routes>
           </>
         ) : null}
-        {user?.email === "john@example.com" ? (
+        {user?.email === "john@example.com" || "" || "" || "" ? (
+          <Routes>
+            <Route path='/doctor' element={<PatientCard />} />
+          </Routes>
+        ) : null}
+
+        {user?.email === "john@example.com" || "" || "" || "" ? (
           <Routes>
             {/* <Route path='/patients' element={<PatientCard />} /> */}
           </Routes>
