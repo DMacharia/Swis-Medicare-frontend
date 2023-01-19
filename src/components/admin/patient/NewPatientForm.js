@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 
 
 const NewPatientForm = ({addPatient, }) => {
+  const [patientData, setPatientData] = useState("")
   const [first_name, setFirstName] = useState("");
   const [second_name, setSecondName] = useState("");
   const [username, setUsername] = useState("");
@@ -15,6 +16,7 @@ const NewPatientForm = ({addPatient, }) => {
   const [password, setPassword] = useState("");
   const [date_of_birth, setDate] = useState("");
   const [role, setRole] = useState("");
+  const [blood_group, setBlood] = useState("")
 
   const navigate = useNavigate()
 
@@ -35,6 +37,7 @@ const NewPatientForm = ({addPatient, }) => {
         mobile_no,
         gender,
         password,
+        blood_group,
         date_of_birth,
         role,
       }),
@@ -54,12 +57,15 @@ const NewPatientForm = ({addPatient, }) => {
     setRole("");
   }
   navigate('/register');
+  const onFormChange = (e) => {
+    setPatientData({...patientData,[e.target.name]:e.target.value});
+};
 
 
 
   return (
     <div>
-        {/* <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
         <h1>Admit patient</h1>
           <section className="text-input">
             <label>
@@ -185,7 +191,7 @@ const NewPatientForm = ({addPatient, }) => {
           <section className="actions">
             <button type='submit'>admit</button>
           </section>
-        </form> */}
+        </form>
     </div>
   )
 }

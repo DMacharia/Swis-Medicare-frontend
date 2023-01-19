@@ -72,7 +72,7 @@ const Navbar = () => {
               </li>
               <li>
                 {!user ? <Link to='/login'>Login</Link> : (
-                  user?.email === "peter@example.com" ? <Link to='/adminhome' style={{color: '#0f3460', fontWeight: 'bold', fontSize: '22px'}}>Admin Page</Link> : (patientsMail.includes(user?.email) ? <Link to='/patient' style={{color: '#0f3460', fontWeight: 'bold', fontSize: '22px'}}>Patient</Link> : (doctorsMail.includes(user?.email) ? <Link style={{color: '#0f3460', fontWeight: 'bold', fontSize: '22px'}}>Doctor</Link> : null))
+                  user?.email === "peter@example.com" ? <Link to='/adminhome' style={{color: '#0f3460', fontWeight: 'bold', fontSize: '22px'}}>Admin Page</Link> : (patientsMail.includes(user?.email) ? <Link to='/patient' style={{color: '#0f3460', fontWeight: 'bold', fontSize: '22px'}}>Patient</Link> : (doctorsMail.includes(user?.email) ? <Link to='/doctor' style={{color: '#0f3460', fontWeight: 'bold', fontSize: '22px'}}>Doctor</Link> : null))
                 )}
               </li>
               <li>

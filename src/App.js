@@ -19,8 +19,7 @@ import AdminHome from './components/admin/AdminHome';
 import DoctorCard from './components/admin/doctor/DoctorCard';
 // import PatientCard from './components/admin/patient/PatientCard';
 import Sidebar from './components/admin/Sidebar';
-import EditDoctor from './components/admin/doctor/DoctorCard';
-import NotAuthorized from './components/admin/NotAuthorized';
+import EditDoctor from './components/admin/doctor/EditDoctor';
 import Landing from './Landing/landing';
 import Patient from './components/admin/patient/Patient';
 import MyProfile from './components/doctor/MyProfile';
@@ -104,6 +103,7 @@ function App() {
         {user?.email === "bob@example.com" || "linda@example.com" || "william@example.com" || "elizabeth@example.com  " ? (
           <Routes>
             <Route path='/patient' element={<PatientProfile/>} />
+            <Route path='/doctor' element={<MyProfile />} />
           </Routes>
         ) : null}
       <Routes>
@@ -111,11 +111,12 @@ function App() {
         <Route path='/cart' element={<Cart CartItem={CartItem} addToCart={addToCart} decreaseQty={decreaseQty} removeFromCart={removeFromCart}/>}  />
         <Route path='/login' element={<Login />} />
         <Route path='/pages' element={<Landing />} />
+        <Route path='/edit/:id' element={<EditDoctor />} />
         <Route path='/register' element={<Register />} />
         <Route path='/reset' element={<Reset />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/contact' element={<Footer />} />
-        <Route path='/doctor' element={<MyProfile />} />
+        <Route path='/item/:id' element={<MyProfile />} />
       </Routes>
       {/* <Footer /> */}
       

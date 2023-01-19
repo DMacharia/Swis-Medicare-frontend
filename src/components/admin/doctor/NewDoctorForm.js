@@ -1,173 +1,189 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 
-const NewDoctorForm = () => {
+const NewDoctorForm = ({addPatient}) => {
 
-  // function handleSubmit(e) {
-  //   e.preventDefault();
-  //   fetch("/patients", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({
-  //       first_name,
-  //       second_name,
-  //       username,
-  //       email,
-  //       address,
-  //       mobile_no,
-  //       gender,
-  //       password,
-  //       date_of_birth,
-  //       role,
-  //     }),
-  //   })
-  //     .then((r) => r.json())
-  //     .then((newPatient) => addPatient(newPatient));
+  const [first_name, setFirstName] = useState("");
+  const [second_name, setSecondName] = useState("");
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [reg_no, setReg] = useState("");
+  const [address, setAddress] = useState("");
+  const [mobile_no, setMobile] = useState("");
+  const [emergency_no, setEmergency] = useState("");
+  const [speciality, setSpeciality] = useState("");
+  const [password, setPassword] = useState("");
+  const [role, setRole] = useState("");
+  
 
-  //   setFirstName("");
-  //   setSecondName("");
-  //   setUsername("");
-  //   setEmail("");
-  //   setAddress("");
-  //   setMobile("");
-  //   setGender("");
-  //   setPassword("");
-  //   setDate("");
-  //   setRole("");
-  // }
-  // navigate('/register');
+  const navigate = useNavigate()
+
+  const  handleSubmit = (e) => {
+    e.preventDefault();
+    fetch("/patients", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        first_name,
+        second_name,
+        username,
+        email,
+        reg_no,
+        mobile_no,
+        emergency_no,
+        address,
+        speciality,
+        password,
+        role,
+      }),
+    })
+      .then((r) => r.json())
+      .then((newPatient) => addPatient(newPatient));
+
+    setFirstName("");
+    setSecondName("");
+    setUsername("");
+    setEmail("");
+    setAddress("");
+    setMobile("");
+    setReg("")
+    setEmergency("");
+    setPassword("");
+    setSpeciality("");
+    setRole("");
+  }
+  navigate('/register');
 
 
   return (
     <div>
-        {/* <form onSubmit={handleSubmit}>
-        <h1>Admit patient</h1>
+        <form>
+        <h1>Employ Doctor</h1>
           <section className="text-input">
             <label>
               First Name
             </label>
             <input 
-                type="text" 
+                // type="text" 
                 placeholder="First Name here ..."
-                name='first_name'
-                value={first_name}
-                onChange={onFormChange} />
+                // name='first_name'
+                // value={first_name}
+                // onChange={(e) => setFirstName(e.target.value)}
+                 />
           </section>
           <section className="text-input">
             <label>
               Second Name
             </label>
             <input 
-                type="text" 
+                // type="text" 
                 placeholder="Second Name here ..."
-                name='second_name' 
-                value={second_name}
-                onChange={onFormChange} />
+                // name='second_name' 
+                // value={second_name}
+                // onChange={(e) => setSecondName(e.target.value)}
+                 />
           </section>
           <section className="text-input">
             <label>
               Username
             </label>
             <input 
-                type="text" 
+                // type="text" 
                 placeholder="Username here ..."
-                name='username'
+                // name='username'
                 value={username}
-                onChange={onFormChange} />
+                onChange={(e) => setUsername(e.target.value)} />
           </section>
           <section className="text-input">
             <label>
               Email Address
             </label>
             <input 
-                type="text" 
+                // type="text" 
                 placeholder="Email Address here ..."
-                name='email'
-                value={email}
-                onChange={onFormChange} />
+                // name='email'
+                // value={email}
+                // onChange={(e) => setEmail(e.target.value)}
+                 />
           </section>
           <section className="text-input">
             <label>
               Phone number
             </label>
             <input 
-                type="text" 
+                // type="text" 
                 placeholder="Phone number here ..."
-                name='mobile_no'
-                value={mobile_no}
-                onChange={onFormChange} />
+                // name='mobile_no'
+                // value={reg_no}
+                // onChange={(e) => setMobile(e.target.value)}
+                 />
           </section>
           <section className="text-input">
             <label>
-              Gender
-            </label>
-            <input 
-                type="text" 
-                placeholder="Gender here ..."
-                name='gender'
-                value={reg_no}
-                onChange={onFormChange} />
-          </section>
-          <section className="text-input">
-            <label>
-              Blood Group
+              Emergency no
             </label>
             <input 
                 type="text" 
                 placeholder="Blood group here ..."
-                name='blood group'
-                value={emergency_no}
-                onChange={onFormChange} />
+                // name='emergency_no'
+                // value={emergency_no}
+                // onChange={(e) => setEmergency(e.target.value)}
+                 />
           </section>
           <section className="text-input">
             <label>
               Address
             </label>
             <input 
-                type="text" 
+                // type="text" 
                 placeholder="Address here ..."
-                name='address'
-                value={address}
-                onChange={onFormChange} />
+                // name='address'
+                // value={address}
+                // onChange={(e) => setAddress(e.target.value)}
+                 />
           </section>
           <section className="text-input">
             <label>
               Password
             </label>
             <input 
-                type="text" 
+                // type="text" 
                 placeholder="Password here ..."
-                name='password'
-                value={password}
-                onChange={onFormChange} />
+                // name='password'
+                // value={password}
+                // onChange={(e) => setPassword(e.target.value)}
+                 />
           </section>
           <section className="text-input">
             <label>
-              Date of Birth
+              Speciality
             </label>
             <input 
-                type="text" 
-                placeholder="Date of Birth here ..."
-                name='date_of_birth'
-                value={speciality}
-                onChange={onFormChange} />
+                // type="text" 
+                placeholder="Speciality here ..."
+                // name='speciality'
+                // value={speciality}
+                // onChange={(e) => setSpeciality(e.target.value)}
+                 />
           </section>
           <section className="text-input">
             <label>
               Role
             </label>
             <input 
-                type="text" 
+                // type="text" 
                 placeholder="Role here ..."
-                name='role'
-                value={role}
-                onChange={onFormChange} />
+                // name='role'
+                // value={role}
+                // onChange={(e) => setRole(e.target.value)}
+                 />
           </section>
           <section className="actions">
-            <button type='submit'>admit</button>
+            <button onClick={handleSubmit} type='submit'>Employ</button>
           </section>
-        </form> */}
+        </form>
     </div>
   )
 }

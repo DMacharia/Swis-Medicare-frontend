@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./patient.css";
 
 const patientsAPI = "https://swis-medicare-asgm.onrender.com/api/v1/patients";
 
 const Patient = () => {
+
+	const {id} = useParams()
 	// const {first_name, second_name, username, email,mobile_no, gender, blood_group, address, password, date_of_birth, role } = patient;
 
 	// function onDeleteClick(e) {
@@ -58,7 +60,7 @@ const Patient = () => {
 			<div className="patients_container">
 				{patients.map((item) => {
 					return (
-						<Link to="/edit/:id">
+						<Link to={`/item/${id}`}>
 							<div className="patients_table">
 								<div>
 									<p>

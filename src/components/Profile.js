@@ -3,6 +3,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { auth, db } from "../firebase";
 import { query, collection, getDocs, where } from "firebase/firestore";
+import Patient from "./admin/patient/Patient";
 
 const Profile = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -41,8 +42,9 @@ const Profile = () => {
 
   const [patientFormVisible, setPatientFormVisible] = useState(false);
   return (
-    <div>
-      <p>{userID}</p>
+    <div style={{
+      paddingTop: '25rem'
+    }}>
 
       <p>Hello {fake?.username}</p>
 
@@ -51,18 +53,18 @@ const Profile = () => {
       </div>
       {fake?.role === "Admin" && (
         <>
-          <div>Username: {fake?.username}</div>
-          <div>
-            Name: {fake?.first_name} {fake?.second_name}
-          </div>
-          <div>Email: {fake?.email}</div>
-          <div>Mobile No:{fake?.mobile_no}</div>
-          <div>Address: {fake?.address}</div>
-          <div>Title: {fake?.title}</div>
+          <div style={{fontWeight: 'bold', fontSize: '27px'}}>Username: {fake?.username}</div>
+          <div style={{fontWeight: 'bold', fontSize: '27px'}}>Name: {fake?.first_name} {fake?.second_name}</div>
+          <div style={{fontWeight: 'bold', fontSize: '27px'}}>Email: {fake?.email}</div>
+          <div style={{fontWeight: 'bold', fontSize: '27px'}}>Mobile No:{fake?.mobile_no}</div>
+          <div style={{fontWeight: 'bold', fontSize: '27px'}}>Address: {fake?.address}</div>
+          <div style={{fontWeight: 'bold', fontSize: '27px'}}>Title: {fake?.title}</div>
         </>
       )}
       {fake?.role === "Doctor" ? (
-        <>
+        <div style={{
+          paddingLeft: '3rem'
+        }}>
           <div>Username: {fake?.username}</div>
           <div>
             Name: {fake?.first_name} {fake?.second_name}
@@ -73,36 +75,38 @@ const Profile = () => {
           <div>Emergency no:{fake?.emergency_no}</div>
           <div>Address: {fake?.address}</div>
           <div>Speciality: {fake?.speciality}</div>
-        </>
+          <Patient />
+        </div>
       ) : (
-        <>
+        <div>
           <div>Username: {fake?.username}</div>
           <div>
             Name: {fake?.first_name} {fake?.second_name}
           </div>
-          <div>Email: {fake?.email}</div>
-          <div>Gender: {fake?.gender}</div>
-          <div>Mobile No:{fake?.mobile_no}</div>
-          <div>Address: {fake?.address}</div>
-          <div>Blood Group:{fake?.blood_group}</div>
-          <div>Date of Birth: {fake?.date_of_birth}</div>
+          <div style={{fontWeight: 'bold', fontSize: '27px'}}>Email: {fake?.email}</div>
+          <div style={{fontWeight: 'bold', fontSize: '27px'}}>Gender: {fake?.gender}</div>
+          <div style={{fontWeight: 'bold', fontSize: '27px'}}>Mobile No:{fake?.mobile_no}</div>
+          <div style={{fontWeight: 'bold', fontSize: '27px'}}>Address: {fake?.address}</div>
+          <div style={{fontWeight: 'bold', fontSize: '27px'}}>Blood Group:{fake?.blood_group}</div>
+          <div style={{fontWeight: 'bold', fontSize: '27px'}}>Date of Birth: {fake?.date_of_birth}</div>
           <div>
             {fake?.patient_histories &&
               fake?.patient_histories.map((history) => (
                 <div key={history.id}>
-                  <p>Weight: <span>{history?.weight}</span></p>
-                  <p>Bood Pressure: {history?.blood_pressure}</p>
-                  <p>Blood Sugar: {history?.blood_sugar}</p>
-                  <p>Temperature: {history?.temperature}</p>
-                  <p>Pulse Rate: {history?.pulse_rate}</p>
-                  <p>Test: {history?.test}</p>
-                  <p>Diagnosis{history?.diagnosis}</p>
-                  <p>Medication: {history?.medication}</p>
-                  <p>Note: {history?.notes}</p>
+                  <h1>Medical History</h1>
+                  <p>Weight: <span style={{color: '#0071bd'}}>{history?.weight}</span></p>
+                  <p>Bood Pressure: <span style={{color: '#0071bd'}}>{history?.blood_pressure}</span></p>
+                  <p>Blood Sugar: <span style={{color: '#0071bd'}}>{history?.blood_sugar}</span></p>
+                  <p>Temperature: <span style={{color: '#0071bd'}}>{history?.temperature}</span></p>
+                  <p>Pulse Rate: <span style={{color: '#0071bd'}}>{history?.pulse_rate}</span></p>
+                  <p>Test: <span style={{color: '#0071bd'}}>{history?.test}</span></p>
+                  <p>Diagnosis: <span style={{color: '#0071bd'}}>{history?.diagnosis}</span></p>
+                  <p>Medication: <span style={{color: '#0071bd'}}>{history?.medication}</span></p>
+                  <p>Note: <span style={{color: '#0071bd'}}>{history?.notes}</span></p>
                 </div>
               ))}
           </div>
-        </>
+        </div>
       )}
     </div>
   );
