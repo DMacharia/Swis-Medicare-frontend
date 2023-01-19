@@ -12,10 +12,7 @@ export default function Testimonials() {
           </span>
           <span className="test-cards-review">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Pellentesque ullamcorper et quam et tempus. Aenean ultrices varius
-              justo, faucibus pellentesque dui porttitor quis. Phasellus
-              scelerisque turpis at purus dictum.
+            I had an outstanding experience at Swis-medicare. The healthcare services provided were top-notch, and the staff were incredibly professional, knowledgeable and compassionate. I felt well taken care of. I highly recommend Swis-medicare to anyone in need of medical services.
             </p>
           </span>
           <span className="test-cards-rating">
@@ -28,10 +25,7 @@ export default function Testimonials() {
           </span>
           <span className="test-cards-review">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Pellentesque ullamcorper et quam et tempus. Aenean ultrices varius
-              justo, faucibus pellentesque dui porttitor quis. Phasellus
-              scelerisque turpis at purus dictum.
+            I was thoroughly impressed with the level of care I received at Swis-medicare. The staff were friendly and attentive, and the facilities were clean and well-equipped. I felt comfortable and well-informed throughout my visit. I would highly recommend Swis-medicare to anyone in need of medical attention.
             </p>
           </span>
           <span className="test-cards-rating">

@@ -14,7 +14,7 @@ const Shop = ({ addToCart, shopItems }) => {
           }}>
             <div className='heading d_flex'>
               <div className='heading-left row  f_flex'>
-                <h2>Explore Our Chemist</h2>
+                <h2>Visit Our Chemist</h2>
               </div>
               <div className='heading-right row '>
                 <span>View all</span>

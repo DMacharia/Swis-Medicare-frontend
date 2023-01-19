@@ -1,70 +1,83 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Swiss-Medicare
 
-## Available Scripts
+Swiss-Medicare is a platform that allows doctors to keep track of patient medical history data. It also allows the patients to access their medical information and also follow through their medical histories. The platform also helps patients make purchase orders of medication through the hospitals chemist.
 
-In the project directory, you can run:
+## Table of Contents
 
-### `npm start`
+[Description](#description)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+[Project Setup](#project-setup)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+[The Team](#the-team)
 
-### `npm test`
+[Tools and Languages](#tools-and-languages)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[License](#license)
 
-### `npm run build`
+[Page ScreenShot](#page-screenshot)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Description
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The platform is used by health care providers and patients who are able to login and access the following services;
+    The platform has 3 classes of users; an admin, a doctor and a patient
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    The admin is responsible for the registration of doctors to the application as well as new patients
+    The admin is also able to remove a doctor or edit the doctors information
+    The admin has a dashboard that reflects the number of doctors on board as well as the number of patients on board
+    
+    The doctor/healthcare provider is able to log in and access their patients medical history information
+    The doctor/healthcare provider is able to add information about the patients current health status which includes diagnosis, medication and treatment
+    The doctor is able to view all the patients they have treated in their dashboard
 
-### `npm run eject`
+    Patients are able to view their medical histories which includes past diagnosis, treatment and medication.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Project Setup
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    This application is created using node version v18.6.0 . To get started;
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+    $ git clone git@github.com:DMacharia/Swis-Medicare-frontend.git
+    $ cd Swis-Medicare-frontend
+    $ npm install
+    $ npm start
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+    Available Scripts
 
-## Learn More
+    In the project directory, you can run:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    npm start
+    Runs the app in the development mode. Open http://localhost:3000 to view it in your browser. The page will reload when you make changes.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    npm test
+    Launches the test runner in the interactive watch mode.
 
-### Code Splitting
+    npm run build
+    Builds the app for production to the build folder. It correctly bundles React in production mode and optimizes the build for the best performance.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+    Note: this is a one-way operation. Once you eject, you can't go back!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+## Team Members
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+1. [Daniel Macharia](daniel.macharia@student.moringaschool.com)
+2. [Ivy Sifuma](ivy.sifuma@student.moringaschool.com)
+3. [Salvato Luis](salvato.luice@student.moringaschool.com)
+4. [Faith Muchiri](faith.wambui@student.moringaschool.com)    
+5. [Dennis Micheni](dennis.micheni@student.moringaschool.com)
 
-### Advanced Configuration
+## Tools and Languages
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+1. React.js (Frontend)
+2. Ruby on Rails (Backend)
+3. CSS (UI)
+4. JavaScript
 
-### Deployment
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+MIT License Copyright &copy; 2023 **SwissMedicare**
 
-### `npm run build` fails to minify
+## Page Screenshot
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![Screenshot of Swiss-Medicare Landing Page](./src/images/landing_page.png)
+![Screenshot of Swiss-Medicare About Us](./src/images/about_us.png)

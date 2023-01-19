@@ -11,7 +11,7 @@ export default function Services() {
   return (
     <>
       <section className="services">
-        <h3 className="services-header">Services</h3>
+        <h3 className="services-header"></h3>
         <div className="services-container">
           <span className="services-card">
             <img className="doctor-card-image" src={Sect3} alt="doctor" />
